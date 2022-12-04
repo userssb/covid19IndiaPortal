@@ -1,79 +1,61 @@
-POST http://localhost:3000/login/
+post http://localhost:3000/login/
 Content-Type: application/json
 
 {
-    "username": "sreekanth",
-    "password": "singamalaii"
+    "username":"christopher_phillips",
+    "password":"christy@123"
 }
 ###
 
-POST http://localhost:3000/login/
+Get http://localhost:3000/users/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNocmlzdG9waGVyX3BoaWxsaXBzIiwiaWF0IjoxNjcwMTM5OTcxfQ.T5N_5mfWQacD3ZRVNTWhIe_TCzYNUvrk1ztOxhfpII0
+###
+
+Get http://localhost:3000/states/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNocmlzdG9waGVyX3BoaWxsaXBzIiwiaWF0IjoxNjcwMTM5OTcxfQ.T5N_5mfWQacD3ZRVNTWhIe_TCzYNUvrk1ztOxhfpII0
+###
+
+Get http://localhost:3000/states/8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNocmlzdG9waGVyX3BoaWxsaXBzIiwiaWF0IjoxNjcwMTM5OTcxfQ.T5N_5mfWQacD3ZRVNTWhIe_TCzYNUvrk1ztOxhfpII0
+###
+
+post http://localhost:3000/districts/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNocmlzdG9waGVyX3BoaWxsaXBzIiwiaWF0IjoxNjcwMTM5OTcxfQ.T5N_5mfWQacD3ZRVNTWhIe_TCzYNUvrk1ztOxhfpII0
+
+{
+  "districtName": "MUsthabagirigiri",
+  "stateId": 5,
+  "cases": 23235,
+  "cured": 5000,
+  "active": 555,
+  "deaths": 1
+}
+###
+
+get http://localhost:3000/districts/122
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNocmlzdG9waGVyX3BoaWxsaXBzIiwiaWF0IjoxNjcwMTM5OTcxfQ.T5N_5mfWQacD3ZRVNTWhIe_TCzYNUvrk1ztOxhfpII0
+###
+
+
+delete http://localhost:3000/districts/766
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNocmlzdG9waGVyX3BoaWxsaXBzIiwiaWF0IjoxNjcwMTM5OTcxfQ.T5N_5mfWQacD3ZRVNTWhIe_TCzYNUvrk1ztOxhfpII0
+###
+
+put  http://localhost:3000/districts/769
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNocmlzdG9waGVyX3BoaWxsaXBzIiwiaWF0IjoxNjcwMTM5OTcxfQ.T5N_5mfWQacD3ZRVNTWhIe_TCzYNUvrk1ztOxhfpII0
 Content-Type: application/json
 
 {
-    "username": "christopher_phillips",
-    "password": "christy@123"
+  "districtName": "Usha mullapudi",
+  "stateId": 3,
+  "cases": 9999,
+  "cured": 6666,
+  "active": 3333,
+  "deaths": 111
 }
 ###
 
+get http://localhost:3000/states/2/stats/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNocmlzdG9waGVyX3BoaWxsaXBzIiwiaWF0IjoxNjcwMTM5OTcxfQ.T5N_5mfWQacD3ZRVNTWhIe_TCzYNUvrk1ztOxhfpII0
 
-GET  http://localhost:3000/states/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNocmlzdG9waGVyX3BoaWxsaXBzIiwiaWF0IjoxNjQ5MDczODY5fQ.RXYI7-SOwy737M54mg7I48Faac7XHm0XWgP2Y4iTTXA
-###
-//jwttoken : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNocmlzdG9waGVyX3BoaWxsaXBzIiwiaWF0IjoxNjQ5MDczODY5fQ.RXYI7-SOwy737M54mg7I48Faac7XHm0XWgP2Y4iTTXA
-
-GET  http://localhost:3000/states/5
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNocmlzdG9waGVyX3BoaWxsaXBzIiwiaWF0IjoxNjQ5MDczODY5fQ.RXYI7-SOwy737M54mg7I48Faac7XHm0XWgP2Y4iTTXA
-###
-
-
-POST  http://localhost:3000/districts/
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNocmlzdG9waGVyX3BoaWxsaXBzIiwiaWF0IjoxNjQ5MDczODY5fQ.RXYI7-SOwy737M54mg7I48Faac7XHm0XWgP2Y4iTTXA
-
-{
-    "districtName": "Warangal", 
-    "stateId": 29, 
-    "cases": 56258, 
-    "cured": 8000, 
-    "active": 48252, 
-    "deaths": 6
-}
-###
-
-GET http://localhost:3000/districts/76
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNocmlzdG9waGVyX3BoaWxsaXBzIiwiaWF0IjoxNjQ5MDczODY5fQ.RXYI7-SOwy737M54mg7I48Faac7XHm0XWgP2Y4iTTXA
-###
-
-DELETE http://localhost:3000/districts/767
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNocmlzdG9waGVyX3BoaWxsaXBzIiwiaWF0IjoxNjQ5MDczODY5fQ.RXYI7-SOwy737M54mg7I48Faac7XHm0XWgP2Y4iTTXA
-###
-
-PUT http://localhost:3000/districts/766
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNocmlzdG9waGVyX3BoaWxsaXBzIiwiaWF0IjoxNjQ5MDczODY5fQ.RXYI7-SOwy737M54mg7I48Faac7XHm0XWgP2Y4iTTXA
-
-{
-    "districtName": "Warangal-Urban", 
-    "stateId": 29, 
-    "cases": 55555, 
-    "cured": 8888, 
-    "active": 48888, 
-    "deaths": 666
-}
-###
-
-GET  http://localhost:3000/states/5/stats/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNocmlzdG9waGVyX3BoaWxsaXBzIiwiaWF0IjoxNjQ5MDczODY5fQ.RXYI7-SOwy737M54mg7I48Faac7XHm0XWgP2Y4iTTXA
-###
-
-POST http://localhost:3000/users/
-Content-Type: application/json
-
-{
-    "username": "sreekanth",
-    "name": "S Sreekanth Babu",
-    "password": "singamalai",
-    "gender": "male",
-    "location": "Warangal_Urban"
-}
