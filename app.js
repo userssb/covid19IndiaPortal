@@ -40,8 +40,8 @@ app.post("/login/", async (request, response) => {
     const isPasswordMatched = await bcrypt.compare(password, dbUser.password);
     if (isPasswordMatched === true) {
       const payload = { username: username };
-      const jwt_token = jwt.sign(payload, "random");
-      response.send({ jwt_token });
+      const jwtToken = jwt.sign(payload, "random");
+      response.send({ jwtToken });
     } else {
       response.status(400);
       response.send("Invalid password");
@@ -75,12 +75,12 @@ const toCamelCaseDistrict = (dbObject) => {
 const authenticateToken = async (request, response, next) => {
   const authHeader = request.headers["authorization"];
   if (authHeader !== undefined) {
-    jwt_token = authHeader.split(" ")[1];
-    if (jwt_token === undefined) {
+    jwtToken = authHeader.split(" ")[1];
+    if (jwtToken === undefined) {
       response.status(401);
       response.send("Invalid JWT Token");
     } else {
-      jwt.verify(jwt_token, "random", async (error, payload) => {
+      jwt.verify(jwtToken, "random", async (error, payload) => {
         if (error) {
           response.status(401);
           response.send("Invalid JWT Token");
@@ -209,3 +209,4 @@ app.get(
 );
 
 module.exports = app;
+
