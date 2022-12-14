@@ -72,27 +72,26 @@ const toCamelCaseDistrict = (dbObject) => {
 };
 
 //middleware authenticateToken
+
 const authenticateToken = async (request, response, next) => {
   const authHeader = request.headers["authorization"];
+  let jwtToken;
   if (authHeader !== undefined) {
     jwtToken = authHeader.split(" ")[1];
-    if (jwtToken === undefined) {
-      response.status(401);
-      response.send("Invalid JWT Token");
-    } else {
-      jwt.verify(jwtToken, "random", async (error, payload) => {
-        if (error) {
-          response.status(401);
-          response.send("Invalid JWT Token");
-        } else {
-          request.username = payload.username;
-          next();
-        }
-      });
-    }
+  }
+  if (jwtToken === undefined) {
+    response.status(401);
+    response.send("Invalid JWT Token");
   } else {
-    response.status(400);
-    response.send("No authorization header found");
+    jwt.verify(jwtToken, "random", async (error, payload) => {
+      if (error) {
+        response.status(401);
+        response.send("Invalid JWT Token");
+      } else {
+        request.username = payload.username;
+        next();
+      }
+    });
   }
 };
 
@@ -120,7 +119,7 @@ app.get("/states/", authenticateToken, async (request, response) => {
 });
 
 //get stAte API
-app.get("/states/:stateId", authenticateToken, async (request, response) => {
+app.get("/states/:stateId/", authenticateToken, async (request, response) => {
   const { stateId } = request.params;
   const getStateQuery = `select * from state where state_id=${stateId};`;
   const state = await db.get(getStateQuery);
@@ -209,4 +208,3 @@ app.get(
 );
 
 module.exports = app;
-
